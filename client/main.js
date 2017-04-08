@@ -3,9 +3,10 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
+Meteor.subscribe('orgs');
+Orgs = new Mongo.Collection('orgs');
+
 Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
   this.targetTemplate = new ReactiveVar('');
 });
 
@@ -15,13 +16,24 @@ Template.hello.helpers({
   },
   getTemplateName() {
     return Template.instance().targetTemplate.get();
+  },
+  getOrgs() {
+    return Orgs.find();
   }
 });
 
 Template.hello.events({
   'click button'(event, instance) {
     instance.targetTemplate.set('info');
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
   },
+  'submit form': function(event){
+      event.preventDefault();
+      var name = event.target.name.value;
+      org = {
+        name: name
+      };
+      Meteor.call('createOrg', org);
+      event.target.name.value = "";
+  }
+
 });
