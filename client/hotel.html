@@ -1,0 +1,35 @@
+
+<template name="hotelManagement">
+  <form>
+    <input name="name">
+    <input name="orgId">
+    <input name="city">
+    <input name="stars">
+    {{#each getRoomCategories}}
+      <input name="tag">
+     {{/each}}
+    <input type="submit">
+  </form>
+  <br>
+  <table>
+  {{#each getHotels}}
+    {{> hotel}}
+  {{/each}}
+  </table>
+</template>
+
+<template name="hotel">
+<tr>
+ <td> {{name}} </td>
+<td> {{orgId}} </td>
+<td> {{city}} </td>
+<td> {{Tags}} </td>
+<td> {{Thumbnail}} </td>
+<td> {{Images}} </td>
+<td> {{Stars}} </td>
+ <td> {{#if isDeleted}} Obrisano {{else}} Neobrisan {{/if}}</td>
+  <td><button type="button" value="{{_id}}" class="edit btn btn-default">Edit</button></td>
+ <td><button type="button" value="{{_id}}" class="remove2Hotel btn btn-default">Remove</button></td>
+  <td><button type="button" value="{{_id}}" class="removeHotel btn btn-default">Remove 100%</button></td>
+</tr>
+</template>
