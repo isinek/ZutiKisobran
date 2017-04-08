@@ -11,5 +11,8 @@
 
 <template name="main">
   {{> header }}
-  {{> UI.dynamic template=getTemplateName }}
+  <div class="container">
+    {{> UI.dynamic template=getTemplateName }}
+  </div>
+  {{> footer }}
 </template>

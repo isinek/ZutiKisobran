@@ -1,6 +1,5 @@
 Template.searchbot.onCreated(function searchbotOnCreated() {
     this.messagesPool = new ReactiveVar([
-        { message: 'Pozdrav!', isMe: true },
         { message: 'Dobro došli na tražilicu Žutog kišobrana.', isMe: true },
         { message: 'Kako Vam mogu pomoći?', isMe: true }
     ]);
