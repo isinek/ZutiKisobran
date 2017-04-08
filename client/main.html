@@ -12,5 +12,16 @@
 </body>
 
 <template name="main">
-  {{> UI.dynamic template=getTemplateName }}
+  <form>
+    <input name="name">
+    <input type="submit">
+  </form>
+  <br>
+  {{#each getOrgs}}
+    {{> org}}
+  {{/each}}
+</template>
+
+<template name="org">
+  {{name}} <br>
 </template>
