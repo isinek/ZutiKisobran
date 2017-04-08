@@ -22,9 +22,6 @@ Template.hotelManagement.events({
       name: name,
       orgId: orgId,
       city: city,
-      tags:
-      ,
-
       isDeleted: false
     };
     Meteor.call('createOrg', org);
