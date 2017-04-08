@@ -4,10 +4,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 Meteor.subscribe('orgs');
 Orgs = new Mongo.Collection('orgs');
 
-
 Template.orgManagement.helpers({
   getOrgs() {
-    console.log(Orgs.find());
     return Orgs.find();
   }
 });
@@ -24,18 +22,8 @@ Template.orgManagement.events({
     Meteor.call('createOrg', org);
     event.target.name.value = "";
   },
-
   'click .remove': function(event){
     var selectedOrg = event.target.value;
     Meteor.call('removeOrg', selectedOrg);
-
-  },
-
-  'click .remove20': function(event){
-    var selectedOrg = event.target.value;
-    Meteor.call('remove2Org', selectedOrg);
-
   }
 });
-
-
