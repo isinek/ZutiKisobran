@@ -8,20 +8,14 @@ Template.main.onCreated(function mainOnCreated() {
 Template.main.helpers({
   getTemplateName() {
     return Template.instance().targetTemplate.get();
-  }
+  },
+  setTemplate(template) {
+    Template.instance().targetTemplate.set(template);
+  },
 });
 
 Template.main.events({
-  'click .navHome': function(event, instance) {
-    event.preventDefault();
-    instance.targetTemplate.set('home');
+  'click header nav span': function (event, instance) {
+    instance.targetTemplate.set(event.target.dataset.page);
   },
-  'click .navOrgManagement': function(event, instance) {
-    event.preventDefault();
-    instance.targetTemplate.set('orgManagement');
-  },
-  'click .navHotelManagement': function(event, instance) {
-    event.preventDefault();
-    instance.targetTemplate.set('hotelManagement');
-  }
 });
