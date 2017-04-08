@@ -4,15 +4,9 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #111;
 }
-
-body h1,
-body h2,
-body h3 {
-    font-family: 'Roboto', sans-serif;
-}
 /* End of Main */
 
-/* Start of Header */
+/* Start of Header and Navigation */
 header {
     padding: 15px;
     background: #F5F5F5;
@@ -20,21 +14,34 @@ header {
     margin-bottom: 25px;
 }
 
-header .container {
-    text-align: center;
-    padding-right: 80px;
-}
-
 header .container * {
     display: inline-block;
     vertical-align: middle;
+}
+
+header .container h1 {
+    margin: 0px 25px 0px 0px;
 }
 
 header img.logo {
     width: 40px;
     margin-right: 25px;
 }
-/* End of Header */
+
+header nav {
+    float: right;
+}
+
+header nav span {
+    line-height: 39px;
+    font-size: 36px;
+}
+
+header nav span:hover {
+    line-height: 39px;
+    font-size: 36px;
+}
+/* End of Header and Navigation */
 
 /* Start of Searchbot */
 
@@ -96,12 +103,6 @@ section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat 
     padding: 5px;
 }
 
-section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat:after {
-    content: ' ';
-    clear: both;
-    display: block;
-}
-
 section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat > div {
     max-width: 80%;
     padding: 5px;
@@ -125,7 +126,7 @@ section#searchbot > .searchbot_body > #searchbot_input {
     overflow: auto;
     border-radius: 20px;
     padding: 0px 15px;
-    border-color: #CCC;
+    border: 1px solid #CCC;
     line-height: 38px;
 }
 

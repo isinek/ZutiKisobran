@@ -9,14 +9,17 @@
     <section id="searchbot" class="container">
         <div class="searchbot_body">
             <div class="searchbot_chat_wrapper">
-                <div class="searchbot_chat">
+                <div  class="searchbot_chat clearfix">
                     <!--    Message examples
                         <div class="me">In hac habitasse platea dictumst.</div>
                         <div>Ut a libero et neque placerat tempus.</div>
                     -->
+                    {{ #each getMessagesPool }}
+                        <div class="{{ getMessageClass isMe }}">{{ message }}</div>
+                    {{ /each }}
                 </div>
             </div>
-            <textarea id="searchbot_input" name="searchbot_input" class="bling_bling" placeholder="Unesite svoj upit"></textarea>
+            <input type="text" id="searchbot_input" name="searchbot_input" class="bling_bling" placeholder="Unesite svoj upit" />
         </div>
     </section>
 </template>
