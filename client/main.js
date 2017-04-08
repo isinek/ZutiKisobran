@@ -30,6 +30,3 @@ Template.main.events({
     event.target.name.value = "";
   }
 });
-
-Template.main.events({
-});
