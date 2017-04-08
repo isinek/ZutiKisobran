@@ -1,4 +1,7 @@
 Meteor.startup(function () {
+    jQuery('section#searchbot #searchbot_input.bling_bling').focus(function () {
+        jQuery(this).removeClass('bling_bling');
+    });
     jQuery('section#searchbot > .searchbot_header').click(function () {
         jQuery('section#searchbot').toggleClass('closed');
     });

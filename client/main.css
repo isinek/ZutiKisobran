@@ -117,7 +117,7 @@ section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat 
     float: right;
 }
 
-section#searchbot > .searchbot_body > .my_input {
+section#searchbot > .searchbot_body > #searchbot_input {
     width: 100%;
     height: 40px;
     color: #111;
@@ -127,5 +127,24 @@ section#searchbot > .searchbot_body > .my_input {
     padding: 0px 15px;
     border-color: #CCC;
     line-height: 38px;
+}
+
+@-webkit-keyframes bling_bling {
+    0%, 100% { box-shadow: 0px 0px 15px rgba(244, 132, 32, 0); }
+    50% { box-shadow: 0px 0px 15px rgba(244, 132, 32, 1); }
+}
+
+@keyframes bling_bling {
+    0%, 100% { box-shadow: 0px 0px 15px rgba(244, 132, 32, 0); }
+    50% { box-shadow: 0px 0px 15px rgba(244, 132, 32, 1); }
+}
+
+section#searchbot > .searchbot_body > #searchbot_input.bling_bling {
+    -webkit-animation: bling_bling 2s infinite;
+    animation: bling_bling 2s infinite;
+}
+
+section#searchbot > .searchbot_body > #searchbot_input:focus {
+    outline: none;
 }
 /* End of Searchbot */
