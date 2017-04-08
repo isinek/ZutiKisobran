@@ -12,16 +12,6 @@
 </body>
 
 <template name="main">
-  <form>
-    <input name="name">
-    <input type="submit">
-  </form>
-  <br>
-  {{#each getOrgs}}
-    {{> org}}
-  {{/each}}
+  {{> orgManagement }}
 </template>
 
-<template name="org">
-  {{name}} <br>
-</template>
