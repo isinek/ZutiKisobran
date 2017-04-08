@@ -17,5 +17,7 @@ Template.main.helpers({
 Template.main.events({
   'click header nav span': function (event, instance) {
     instance.targetTemplate.set(event.target.dataset.page);
+    jQuery(event.target.parentNode).find('.active').removeClass('active');
+    jQuery(event.target).addClass('active');
   },
 });
