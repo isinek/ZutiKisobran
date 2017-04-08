@@ -1,0 +1,23 @@
+<template name="searchbot">
+    <!--    Classic chat
+        <section id="searchbot" class="col-lg-2 col-md-4 col-sm-6">
+            <div class="searchbot_header">
+                <span>Srčko</span>
+            </div>
+        </section>
+    -->
+    <section id="searchbot" class="container">
+        <div class="searchbot_body">
+            <div class="searchbot_chat_wrapper">
+                <div class="searchbot_chat">
+                    <!--    Message examples
+                        <div class="me">In hac habitasse platea dictumst.</div>
+                        <div>Ut a libero et neque placerat tempus.</div>
+                    -->
+                </div>
+            </div>
+            <textarea id="searchbot_input" name="searchbot_input" class="bling_bling" placeholder="Unesite svoj upit"></textarea>
+        </div>
+        <button onclick="jQuery('.searchbot_chat').prepend('<div>'+jQuery('.my_input').val()+'</div>'); ">Push message!</button>
+    </section>
+</template>
