@@ -12,5 +12,21 @@ Meteor.methods({
     	{
     		$set: { "isDeleted": true}
     	});
+  },
+
+  'createHotel': function(hotel) {
+    Hotels.insert(hotel)
+  },
+  
+  'removeHotel': function(id) {
+    Hotels.remove({ _id: id });
+  },
+  
+  'remove2Hotel': function(id) {
+    Hotels.update({ _id: id }, 
+    	{
+    		$set: { "isDeleted": true}
+    	});
   }
+
 });
