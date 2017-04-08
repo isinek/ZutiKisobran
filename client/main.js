@@ -6,14 +6,11 @@ import './main.html';
 Meteor.subscribe('orgs');
 Orgs = new Mongo.Collection('orgs');
 
-Template.hello.onCreated(function helloOnCreated() {
-  this.targetTemplate = new ReactiveVar('');
+Template.main.onCreated(function mainOnCreated() {
+  this.targetTemplate = new ReactiveVar('home');
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
+Template.main.helpers({
   getTemplateName() {
     return Template.instance().targetTemplate.get();
   },
@@ -22,18 +19,17 @@ Template.hello.helpers({
   }
 });
 
-Template.hello.events({
-  'click button'(event, instance) {
-    instance.targetTemplate.set('info');
-  },
+Template.main.events({
   'submit form': function(event){
-      event.preventDefault();
-      var name = event.target.name.value;
-      org = {
-        name: name
-      };
-      Meteor.call('createOrg', org);
-      event.target.name.value = "";
+    event.preventDefault();
+    var name = event.target.name.value;
+    org = {
+      name: name
+    };
+    Meteor.call('createOrg', org);
+    event.target.name.value = "";
   }
+});
 
+Template.main.events({
 });
