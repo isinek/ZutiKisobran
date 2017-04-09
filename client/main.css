@@ -35,11 +35,16 @@ header nav {
 header nav span {
     line-height: 39px;
     font-size: 36px;
+    margin-left: 10px;
 }
 
 header nav span:hover {
-    line-height: 39px;
-    font-size: 36px;
+    cursor: pointer;
+    color: #F47B20
+}
+
+header nav span.active {
+    color: #F47B20;
 }
 /* End of Header and Navigation */
 

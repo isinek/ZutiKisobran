@@ -2,12 +2,11 @@ Meteor.subscribe('hotels');
 Hotels = new Mongo.Collection('hotels');
 
 Template.searchbot.onCreated(function searchbotOnCreated() {
-  this.messagesPool = new ReactiveVar([
-    { message: 'Pozdrav!', isMe: true },
-    { message: 'Dobro došli na tražilicu Žutog kišobrana.', isMe: true },
-    { message: 'Kako Vam mogu pomoći?', isMe: true }
-  ]);
   this.searchContext = new ReactiveVar({});
+  this.messagesPool = new ReactiveVar([
+      { message: 'Dobro došli na tražilicu Žutog kišobrana.', isMe: true },
+      { message: 'Kako Vam mogu pomoći?', isMe: true }
+  ]);
 });
 
 Template.searchbot.helpers({
