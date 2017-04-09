@@ -69,9 +69,9 @@ Template.searchbot.events = {
                   searchContext.rooms.bedCount = params.adult;
                 }
                 if (typeof params.price !== 'undefined' && params.price.length == 1) {
-                  searchContext.rooms.price = '{$lt: ' + params.price[0] + '}';
+                  searchContext.rooms.price = {$lt: params.price[0]};
                 } else if (typeof params.price !== 'undefined' && params.price.length == 2) {
-                  searchContext.rooms.price = '{$gt: ' + params.price[0] + ', $lt: ' + params.price[1] + '}';
+                  searchContext.rooms.price = {$gt: params.price[0], $lt: params.price[1]};
                 }
                 var tags = typeof params.price !== 'undefined' && params['room-facility'].concat(params['venue-facility']);
                 if (tags.length > 0) {
