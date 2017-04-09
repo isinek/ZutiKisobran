@@ -4,6 +4,7 @@ Template.searchbot.onCreated(function searchbotOnCreated() {
       { message: 'Dobro došli na tražilicu Žutog kišobrana.', isMe: true },
       { message: 'Kako Vam mogu pomoći?', isMe: true }
   ]);
+  this.firstRow = new ReactiveVar(true);
 });
 
 Template.searchbot.helpers({
@@ -58,18 +59,18 @@ Template.searchbot.events = {
                 var params = result.data.result.parameters;
                 params = _.pick(params, 'adult', 'checkin-date', 'checkout-date', 'city_cro', 'price', 'room-facility', 'venue-facility', 'sort', 'star');
                 var searchContext = template.searchContext.get();
-                if (params.star != '') {
+                if (typeof params.star !== 'undefined' && params.star.length) {
                   searchContext.hotels.stars = parseInt(params.star[0]);
                 }
-                if (params.city_cro != '') {
+                if (typeof params.city_cro !== 'undefined' && params.city_cro != '') {
                   searchContext.hotels.city = params.city_cro;
                 }
-                if (params.adult != '') {
+                if (typeof params.adult !== 'undefined' && params.adult.length) {
                   searchContext.rooms.bedCount = params.adult;
                 }
-                if (params.price.length == 1) {
+                if (typeof params.price !== 'undefined' && params.price.length == 1) {
                   searchContext.rooms.price = '{$lt: ' + params.price[0] + '}';
-                } else if (params.price.length == 2) {
+                } else if (typeof params.price !== 'undefined' && params.price.length == 2) {
                   searchContext.rooms.price = '{$gt: ' + params.price[0] + ', $lt: ' + params.price[1] + '}';
                 }
                 var tags = typeof params.price !== 'undefined' && params['room-facility'].concat(params['venue-facility']);
@@ -81,7 +82,7 @@ Template.searchbot.events = {
               } else {
                 console.log(error);
               }
-              dots.removeClass('hidden');
+              dots.addClass('hidden');  
             });
         }
     },

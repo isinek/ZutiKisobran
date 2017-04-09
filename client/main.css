@@ -113,6 +113,7 @@ section#searchbot.closed > .searchbot_body {
 section#searchbot {
     display:block;
     color: #FFF;
+    margin-bottom: 50px;
 }
 
 section#searchbot > .searchbot_body {
@@ -137,7 +138,7 @@ section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat 
 
 section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat > div {
     max-width: 80%;
-    padding: 5px;
+    padding: 5px 10px;
     margin-bottom: 5px;
     border-radius: 5px;
     background: #FFCA08;
@@ -230,9 +231,5 @@ section#searchbot > .searchbot_body > #searchbot_input.bling_bling {
 
 section#searchbot > .searchbot_body > #searchbot_input:focus {
     outline: none;
-}
-
-section#searchbot_results {
-    margin-top: 25px;
 }
 /* End of Searchbot */
