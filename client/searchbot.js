@@ -66,7 +66,7 @@ Template.searchbot.events = {
                 } else if (params.price.length == 2) {
                   searchContext.rooms.price = '{$gt: ' + params.price[0] + ', $lt: ' + params.price[1] + '}';
                 }
-                var tags = params['room-facility'].concat(params['venue-facility']);
+                var tags = typeof params.price !== 'undefined' && params['room-facility'].concat(params['venue-facility']);
                 tags = _.map(tags, function (tag) {
                   return '"' + tag + '"';
                 });
