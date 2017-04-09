@@ -1,3 +1,6 @@
+Meteor.subscribe('hotels');
+Hotels = new Mongo.Collection('hotels');
+
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 

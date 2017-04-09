@@ -1,7 +1,3 @@
-Meteor.subscribe('hotels');
-Hotels = new Mongo.Collection('hotels');
-
-
 Template.hotelManagement.onCreated(function hotelManagementOnCreated() {
   this.tags = new ReactiveVar([]);
 });

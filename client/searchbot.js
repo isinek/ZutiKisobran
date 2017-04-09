@@ -1,6 +1,3 @@
-Meteor.subscribe('hotels');
-Hotels = new Mongo.Collection('hotels');
-
 Template.searchbot.onCreated(function searchbotOnCreated() {
   this.searchContext = new ReactiveVar({});
   this.messagesPool = new ReactiveVar([
