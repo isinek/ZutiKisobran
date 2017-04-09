@@ -30,6 +30,7 @@ header img.logo {
 
 header nav {
     float: right;
+    position: relative;
 }
 
 header nav span {
@@ -46,6 +47,13 @@ header nav span:hover {
 header nav span.active {
     color: #F47B20;
 }
+
+header nav .dropdown_login {
+    position: absolute;
+    top: 100%;
+    right: 25px;
+}
+
 /* End of Header and Navigation */
 
 /* Start of Searchbot */
