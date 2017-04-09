@@ -6,9 +6,19 @@
   </form>
   <br>
   <table class="table table-striped">
+    <thead>
+        <tr>
+          <th>Naziv organizacije</th>
+          <th>Status</th>
+          <th>Akcija1</th>
+          <th>Akcija2</th>
+        </tr>
+    </thead>
+    <tbody>
     {{#each getOrgs}}
       {{> org}}
     {{/each}}
+    </tbody>
   </table>
 </template>
 
