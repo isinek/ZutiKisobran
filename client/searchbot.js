@@ -67,18 +67,18 @@ Template.searchbot.events = {
                 var params = result.data.result.parameters;
                 params = _.pick(params, 'adult', 'checkin-date', 'checkout-date', 'city_cro', 'price', 'room-facility', 'venue-facility', 'sort');
                 var searchContext = template.searchContext.get();
-                if (params.adult != '') {
+                if (typeof params.adult !== 'undefined' && params.adult != '') {
                   searchContext.bedCount = params.adult;
                 }
-                if (params.city_cro != '') {
+                if (typeof params.city_cro !== 'undefined' && params.city_cro != '') {
                   searchContext.city = params.city_cro;
                 }
-                if (params.price.length == 1) {
+                if (typeof params.price !== 'undefined' && params.price.length == 1) {
                   searchContext['"rooms.price"'] = '{$lt: ' + params.price[0] + '}';
-                } else if (params.price.length == 2) {
+                } else if (typeof params.price !== 'undefined' && params.price.length == 2) {
                   searchContext['"rooms.price"'] = '{$gt: ' + params.price[0] + ', $lt: ' + params.price[1] + '}';
                 }
-                var tags = params['room-facility'].concat(params['venue-facility']);
+                var tags = typeof params.price !== 'undefined' && params['room-facility'].concat(params['venue-facility']);
                 tags = _.map(tags, function (tag) {
                   return '"' + tag + '"';
                 });
