@@ -19,15 +19,39 @@
                     {{ /each }}
                 </div>
             </div>
+            <div class="searchbot_activity clearfix">
+                <span class="hidden"><span></span><span></span><span></span></span>
+                <span class="me hidden"><span></span><span></span><span></span></span>
+            </div>
             <input type="text" id="searchbot_input" name="searchbot_input" class="bling_bling" placeholder="Unesite svoj upit" />
         </div>
     </section>
-    {{#each getHotels}}
-      {{> hotelSearched}}
-    {{/each}}
-</template>
-
-<template name="hotelSearched">
-  {{name}} {{city}} {{stars}}
-  <br>
+    <section id="searchbot_results">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Naziv hotela</th>
+                    <th>Grad</th>
+                    <th>Broj zvjezdica</th>
+                    <th>Kategorija sobe</th>
+                    <th>Broj kreveta</th>
+                    <th>Cijena</th>
+                    <th>Broj soba</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ #each getHotels }}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ city }}</td>
+                        <td>{{ stars }}</td>
+                        <td>Kategorija sobe</td>
+                        <td>Broj kreveta</td>
+                        <td>Cijena</td>
+                        <td>Broj soba</td>
+                    </tr>
+                {{ /each }}
+            </tbody>
+        </table>
+    </section>
 </template>

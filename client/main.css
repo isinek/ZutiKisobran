@@ -14,7 +14,7 @@ header {
     margin-bottom: 25px;
 }
 
-header .container * {
+header .container > * {
     display: inline-block;
     vertical-align: middle;
 }
@@ -41,7 +41,7 @@ header nav span {
 
 header nav span:hover {
     cursor: pointer;
-    color: #F47B20
+    color: #F47B20;
 }
 
 header nav span.active {
@@ -50,8 +50,27 @@ header nav span.active {
 
 header nav .dropdown_login {
     position: absolute;
-    top: 100%;
-    right: 25px;
+    top: 45px;
+    right: 0px;
+    z-index: 999;
+}
+
+header nav .dropdown_login a.login-link-text,
+header nav .dropdown_login a.login-close-text {
+    display: none;
+}
+
+header nav .dropdown_login #login-dropdown-list {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin: 0;
+}
+
+header nav .dropdown_login #login-dropdown-list:after {
+    content: ' ';
+    clear: both;
+    display: block;
 }
 
 /* End of Header and Navigation */
@@ -107,7 +126,7 @@ section#searchbot > .searchbot_body > .searchbot_chat_wrapper {
     overflow: hidden;
     position: relative;
     overflow-y: auto;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
 }
 
 section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat {
@@ -129,6 +148,57 @@ section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat 
 section#searchbot > .searchbot_body > .searchbot_chat_wrapper > .searchbot_chat > .me {
     background: #F47B20;
     float: right;
+}
+
+@keyframes blink {
+    0% {
+      opacity: .2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: .2;
+    }
+}
+
+section#searchbot > .searchbot_body > .searchbot_activity {
+    color: black;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+section#searchbot > .searchbot_body > .searchbot_activity > span {
+    display: inline-block;
+    float: left;
+    margin-left: 25px;
+}
+
+section#searchbot > .searchbot_body > .searchbot_activity > span.me {
+    float: right;
+    margin-left: 0px;
+    margin-right: 25px;
+}
+
+section#searchbot > .searchbot_body > .searchbot_activity > span > span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+    margin-right: 5px;
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+section#searchbot > .searchbot_body > .searchbot_activity > span > span:nth-child(2) {
+    animation-delay: .2s;
+}
+
+section#searchbot > .searchbot_body > .searchbot_activity > span > span:nth-child(3) {
+    animation-delay: .4s;
 }
 
 section#searchbot > .searchbot_body > #searchbot_input {
@@ -160,5 +230,9 @@ section#searchbot > .searchbot_body > #searchbot_input.bling_bling {
 
 section#searchbot > .searchbot_body > #searchbot_input:focus {
     outline: none;
+}
+
+section#searchbot_results {
+    margin-top: 25px;
 }
 /* End of Searchbot */
