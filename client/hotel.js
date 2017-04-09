@@ -6,31 +6,27 @@ Template.hotelManagement.helpers({
   getTags() {
     return Template.instance().tags.get();
   },
+  getHotels() {
+    return Hotels.find();
+  }
 });
 
 Template.hotelManagement.events({
   'submit form': function(event){
     event.preventDefault();
-    var name = event.target.name.value;
     org = {
-      name: name,
-      orgId: orgId,
-      city: city,
-      isDeleted: false
+      name: event.target.name.value,
+      stars: event.target.stars.value,
+      city: event.target.city.value
     };
-    Meteor.call('createOrg', org);
+    Meteor.call('createHotel', org);
     event.target.name.value = "";
+    event.target.stars.value = "";
+    event.target.city.value = "";
   },
-
   'click .removeHotel': function(event){
-    var selectedOrg = event.target.value;
-    Meteor.call('removeHotel', selectedOrg);
-
-  },
-
-  'click .remove2Hotel': function(event){
-    var selectedOrg = event.target.value;
-    Meteor.call('remove2Hotel', selectedOrg);
-
+    event.preventDefault();
+    var id = event.target.value;
+    Meteor.call('removeHotel', id);
   }
 });
