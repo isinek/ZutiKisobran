@@ -12,8 +12,6 @@ Template.hotelManagement.helpers({
   },
 });
 
-
-
 Template.hotelManagement.events({
   'submit form': function(event){
     event.preventDefault();
