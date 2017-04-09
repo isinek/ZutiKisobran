@@ -16,8 +16,14 @@ Template.main.helpers({
 
 Template.main.events({
   'click header nav span': function (event, instance) {
-    instance.targetTemplate.set(event.target.dataset.page);
-    jQuery(event.target.parentNode).find('.active').removeClass('active');
-    jQuery(event.target).addClass('active');
+  	if(typeof event.target.dataset.page !== 'undefined') {
+	    instance.targetTemplate.set(event.target.dataset.page);
+	    jQuery(event.target.parentNode).find('.active').removeClass('active');
+	    jQuery(event.target).addClass('active');
+	}
+  },
+  'click header nav span.login': function (event, instance) {
+  	console.log(event.target);
+  	jQuery(event.target).next().toggleClass('hidden');
   },
 });
