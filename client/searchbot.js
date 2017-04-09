@@ -66,7 +66,7 @@ Template.searchbot.events = {
                   searchContext.hotels.city = params.city_cro;
                 }
                 if (typeof params.adult !== 'undefined' && params.adult.length) {
-                  searchContext.rooms.bedCount = params.adult;
+                  searchContext.rooms.bedCount = params.adult[0];
                 }
                 if (typeof params.price !== 'undefined' && params.price.length == 1) {
                   searchContext.rooms.price = {$lt: params.price[0]};
