@@ -17,7 +17,9 @@ Template.searchbot.helpers({
       return Hotels.find(Template.instance().searchContext.get().hotels);
     },
     getRooms(hotelId) {
-      return Rooms.find(Template.instance().searchContext.get().rooms);
+      var query = Template.instance().searchContext.get().rooms
+      query.hotelId = hotelId;
+      return Rooms.find(query);
     }
 });
 
@@ -53,7 +55,7 @@ Template.searchbot.events = {
                 params = _.pick(params, 'adult', 'checkin-date', 'checkout-date', 'city_cro', 'price', 'room-facility', 'venue-facility', 'sort', 'star');
                 var searchContext = template.searchContext.get();
                 if (params.star != '') {
-                  searchContext.hotels.stars = params.star;
+                  searchContext.hotels.stars = parseInt(params.star[0]);
                 }
                 if (params.city_cro != '') {
                   searchContext.hotels.city = params.city_cro;
@@ -67,11 +69,9 @@ Template.searchbot.events = {
                   searchContext.rooms.price = '{$gt: ' + params.price[0] + ', $lt: ' + params.price[1] + '}';
                 }
                 var tags = typeof params.price !== 'undefined' && params['room-facility'].concat(params['venue-facility']);
-                tags = _.map(tags, function (tag) {
-                  return '"' + tag + '"';
-                });
-                tags = tags.join(', ');
-                searchContext.rooms.tags = '{$in: [' + tags + ']}';
+                if (tags.length > 0) {
+                  searchContext.rooms.tags = {$in: tags};
+                }
                 console.log(searchContext);
                 template.searchContext.set(searchContext);
               } else {
