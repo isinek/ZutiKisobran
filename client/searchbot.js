@@ -29,6 +29,8 @@ Template.searchbot.events = {
         if (event.which === 13 && instance.find('#searchbot #searchbot_input').value.length) {
             var dots = jQuery(event.target).prev().find('span').first();
             dots.addClass('hidden');
+            dots = dots.next();
+            dots.removeClass('hidden');
             var messages = Template.instance().messagesPool.get();
             var message = instance.find('#searchbot #searchbot_input').value;
             messages.push({ message: message, isMe: false });
@@ -79,6 +81,7 @@ Template.searchbot.events = {
               } else {
                 console.log(error);
               }
+              dots.removeClass('hidden');
             });
         }
     },
