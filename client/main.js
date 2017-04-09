@@ -28,5 +28,6 @@ Template.main.events({
   'click header nav span.login': function (event, instance) {
   	console.log(event.target);
   	jQuery(event.target).next().toggleClass('hidden');
+    jQuery(event.target).next().find('.login-link-text').click();
   },
 });

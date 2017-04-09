@@ -43,6 +43,8 @@ Template.searchbot.events = {
     },
     'keyup section#searchbot #searchbot_input': function (event, instance) {
         if (event.which === 13 && instance.find('#searchbot #searchbot_input').value.length) {
+            var dots = jQuery(event.target).prev().find('span').first();
+            dots.addClass('hidden');
             var messages = Template.instance().messagesPool.get();
             var message = instance.find('#searchbot #searchbot_input').value;
             messages.push({ message: message, isMe: false });
@@ -90,5 +92,12 @@ Template.searchbot.events = {
               }
             });
         }
+    },
+    'keypress section#searchbot #searchbot_input': function (event, instance) {
+        var dots = jQuery(event.target).prev().find('span').first();
+        dots.removeClass('hidden');
+        setTimeout(function() {
+          dots.addClass('hidden');
+        }, 3000);
     }
 };
