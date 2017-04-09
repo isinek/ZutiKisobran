@@ -3,9 +3,6 @@ Meteor.methods({
     Orgs.insert(org)
   },
   'removeOrg': function(id) {
-    Orgs.remove({ _id: id });
-  },
-  'removeOrg': function(id) {
     Orgs.update({ _id: id }, { $set: { "isDeleted": true } });
   },
   'createHotel': function(hotel) {

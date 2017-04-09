@@ -1,30 +1,32 @@
 
 <template name="hotelManagement">
 <h2>Hoteli CRUD</h2>
-  <div id="hotel_management">
-    <div class="form-group row">
-      <label for="name" class="col-md-2 col-form-label">Naziv</label>
-      <div class="col-md-10">
-        <input class="form-control" type="text" id="name" name="name" />
+  <form>
+    <div id="hotel_management">
+      <div class="form-group row">
+        <label for="name" class="col-md-2 col-form-label">Naziv</label>
+        <div class="col-md-10">
+          <input class="form-control" type="text" id="name" name="name" />
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="name" class="col-md-2 col-form-label">Grad</label>
-      <div class="col-md-10">
-        <input class="form-control" type="text" id="city" name="city" />
+      <div class="form-group row">
+        <label for="name" class="col-md-2 col-form-label">Grad</label>
+        <div class="col-md-10">
+          <input class="form-control" type="text" id="city" name="city" />
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="name" class="col-md-2 col-form-label">Zvjezdice</label>
-      <div class="col-md-10">
-        <input class="form-control" type="number" id="stars" name="stars" />
+      <div class="form-group row">
+        <label for="name" class="col-md-2 col-form-label">Zvjezdice</label>
+        <div class="col-md-10">
+          <input class="form-control" type="number" id="stars" name="stars" />
+        </div>
       </div>
+      {{ #each getTags }}
+        <input name="tag">
+      {{ /each }}
+      <input type="submit">
     </div>
-    {{ #each getTags }}
-      <input name="tag">
-    {{ /each }}
-    <input type="submit">
-  </div>
+  </form>
   <br>
   <table>
     {{ #each getHotels }}
@@ -34,17 +36,14 @@
 </template>
 
 <template name="hotel">
-<tr>
- <td> {{name}} </td>
-<td> {{orgId}} </td>
-<td> {{city}} </td>
-<td> {{Tags}} </td>
-<td> {{Thumbnail}} </td>
-<td> {{Images}} </td>
-<td> {{Stars}} </td>
- <td> {{#if isDeleted}} Obrisano {{else}} Neobrisan {{/if}}</td>
-  <td><button type="button" value="{{_id}}" class="edit btn btn-default">Edit</button></td>
- <td><button type="button" value="{{_id}}" class="remove2Hotel btn btn-default">Remove</button></td>
-  <td><button type="button" value="{{_id}}" class="removeHotel btn btn-default">Remove 100%</button></td>
-</tr>
+  <tr>
+    <td> {{name}} </td>
+    <td> {{orgId}} </td>
+    <td> {{city}} </td>
+    <td> {{Tags}} </td>
+    <td> {{Thumbnail}} </td>
+    <td> {{Images}} </td>
+    <td> {{Stars}} </td>
+    <td><button type="button" value="{{_id}}" class="remove btn btn-danger">Remove</button></td>
+  </tr>
 </template>

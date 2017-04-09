@@ -24,7 +24,7 @@ Template.hotelManagement.events({
     event.target.stars.value = "";
     event.target.city.value = "";
   },
-  'click .removeHotel': function(event){
+  'click .remove': function(event){
     event.preventDefault();
     var id = event.target.value;
     Meteor.call('removeHotel', id);
