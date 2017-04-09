@@ -1,5 +1,7 @@
 Meteor.subscribe('hotels');
+Meteor.subscribe('rooms');
 Hotels = new Mongo.Collection('hotels');
+Rooms = new Mongo.Collection('rooms');
 
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';

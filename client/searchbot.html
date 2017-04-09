@@ -22,4 +22,12 @@
             <input type="text" id="searchbot_input" name="searchbot_input" class="bling_bling" placeholder="Unesite svoj upit" />
         </div>
     </section>
+    {{#each getHotels}}
+      {{> hotelSearched}}
+    {{/each}}
+</template>
+
+<template name="hotelSearched">
+  {{name}} {{city}} {{stars}}
+  <br>
 </template>
