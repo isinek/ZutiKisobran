@@ -1,10 +1,11 @@
 <template name="orgManagement">
+<h2>Organizacije CRUD</h2>
   <form>
-    <input name="name">
+    <input name="name" placeholder="Ime organizacije">
     <input type="submit">
   </form>
   <br>
-  <table>
+  <table class="table table-striped">
     {{#each getOrgs}}
       {{> org}}
     {{/each}}
@@ -15,7 +16,7 @@
   <tr>
     <td>{{name}}</td>
     <td>{{#if isApproved}} Odobrena {{else}} Neodobrena {{/if}}</td>
-    <td><button type="button" value="{{_id}}" class="edit btn btn-default">Edit</button></td>
-    <td><button type="button" value="{{_id}}" class="remove btn btn-default">Remove</button></td>
+    <td><button type="button" value="{{_id}}" class="edit btn btn-success">Edit</button></td>
+    <td><button type="button" value="{{_id}}" class="remove btn btn-danger">Remove</button></td>
   </tr>
 </template>
